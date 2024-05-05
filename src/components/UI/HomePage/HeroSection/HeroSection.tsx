@@ -38,7 +38,7 @@ const HeroSection = () => {
         </Typography>
         <Typography sx={{ my: 4 }}>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit eum
-          iusto consequatur eius, doloribus nesciunt facere aliquid eveniet et.
+          iusto in consequatur eius, doloribus nesciunt facere aliquid eveniet.
           Rerum maiores saepe cupiditate repellat recusandae atque sed. Saepe,
           vitae id?
         </Typography>
@@ -47,7 +47,6 @@ const HeroSection = () => {
           <Button variant="outlined">Contact us</Button>
         </Box>
       </Box>
-      {/* 
       <Box
         sx={{
           p: 1,
@@ -119,8 +118,7 @@ const HeroSection = () => {
             alt="doctor3"
           />
         </Box>
-      </Box> */}
-      hero section
+      </Box>
     </Container>
   );
 };
