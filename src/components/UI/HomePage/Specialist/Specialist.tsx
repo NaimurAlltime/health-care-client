@@ -29,7 +29,7 @@ const Specialist = async () => {
             Experienced Doctors Across All Specialties
           </Typography>
         </Box>
-        {/* <Stack direction="row" gap={4} mt={5}>
+        <Stack direction="row" gap={4} mt={5}>
           {specialties.map((specialty: any) => (
             <Box
               key={specialty.id}
@@ -67,7 +67,7 @@ const Specialist = async () => {
               </Box>
             </Box>
           ))}
-        </Stack> */}
+        </Stack>
         <Button
           variant="outlined"
           sx={{
