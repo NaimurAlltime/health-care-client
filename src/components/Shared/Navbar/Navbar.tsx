@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 
@@ -18,6 +18,20 @@ const Navbar = () => {
           </Box>{" "}
           Health Care
         </Typography>
+
+        <Stack direction="row" justifyContent="space-between" gap={4}>
+          <Typography component={Link} href="/consultation">
+            Consultation
+          </Typography>
+          <Typography>Health Plans</Typography>
+          <Typography>Medicine</Typography>
+          <Typography>Diagnostics</Typography>
+          <Typography>NGOs</Typography>
+        </Stack>
+
+        <Button component={Link} href="/login">
+          Login
+        </Button>
       </Stack>
     </Container>
   );
