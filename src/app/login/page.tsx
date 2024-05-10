@@ -3,19 +3,22 @@ import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import assets from "@/assets";
 import Link from "next/link";
-import { FieldValues } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { userLogin } from "@/services/actions/userLogin";
 import { storeUserInfo } from "@/services/auth.services";
 import { toast } from "sonner";
+import { Router } from "next/router";
 import { useRouter } from "next/navigation";
 import PHForm from "@/components/Forms/PHForm";
 import PHInput from "@/components/Forms/PHInput";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 
-// export const validationSchema = z.object({
-//   email: z.string().email("Please enter a valid email address!"),
-//   password: z.string().min(6, "Must be at least 6 characters"),
-// });
+export const validationSchema = z.object({
+  email: z.string().email("Please enter a valid email address!"),
+  password: z.string().min(6, "Must be at least 6 characters"),
+});
 
 const LoginPage = () => {
   const router = useRouter();
@@ -28,7 +31,7 @@ const LoginPage = () => {
       if (res?.data?.accessToken) {
         toast.success(res?.message);
         storeUserInfo({ accessToken: res?.data?.accessToken });
-        router.push("/dashboard");
+        router.push("/");
       } else {
         setError(res.message);
         // console.log(res);
@@ -73,21 +76,26 @@ const LoginPage = () => {
             </Box>
           </Stack>
 
-          <Box>
-            <Typography
-              sx={{
-                backgroundColor: "red",
-                padding: "1px",
-                borderRadius: "2px",
-                color: "white",
-                marginTop: "5px",
-              }}
-            ></Typography>
-          </Box>
+          {error && (
+            <Box>
+              <Typography
+                sx={{
+                  backgroundColor: "red",
+                  padding: "1px",
+                  borderRadius: "2px",
+                  color: "white",
+                  marginTop: "5px",
+                }}
+              >
+                {error}
+              </Typography>
+            </Box>
+          )}
 
           <Box>
             <PHForm
               onSubmit={handleLogin}
+              resolver={zodResolver(validationSchema)}
               defaultValues={{
                 email: "",
                 password: "",
@@ -127,7 +135,9 @@ const LoginPage = () => {
               </Button>
               <Typography component="p" fontWeight={300}>
                 Don&apos;t have an account?{" "}
-                <Link href="/register">Create an account</Link>
+                <Link href="/register" className="text-blue-500">
+                  Create an account
+                </Link>
               </Typography>
             </PHForm>
           </Box>
