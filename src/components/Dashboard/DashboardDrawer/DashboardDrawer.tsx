@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import SideBar from "../SideBar/SideBar";
 // import SideBar from "../SideBar/SideBar";
 
 const drawerWidth = 240;
@@ -98,8 +99,8 @@ export default function DashboardDrawer({
             },
           }}
         >
-          {/* <SideBar /> */}
-          <h1>Sidebar</h1>
+          <SideBar />
+          {/* <h1>Sidebar</h1> */}
         </Drawer>
         <Drawer
           variant="permanent"
@@ -112,8 +113,8 @@ export default function DashboardDrawer({
           }}
           open
         >
-          {/* <SideBar /> */}
-          <h1>Sidebar</h1>
+          <SideBar />
+          {/* <h1>Sidebar</h1> */}
         </Drawer>
       </Box>
       <Box
