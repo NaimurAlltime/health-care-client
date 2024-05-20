@@ -1,3 +1,4 @@
+import PHFileUploader from "@/components/Forms/PHFileUploader";
 import PHForm from "@/components/Forms/PHForm";
 import PHInput from "@/components/Forms/PHInput";
 import PHModal from "@/components/Shared/PHModal/PHModal";
@@ -27,7 +28,7 @@ const SpecialtyModal = ({ open, setOpen }: TProps) => {
             <PHInput name="title" label="Title" />
           </Grid>
           <Grid item md={6}>
-            {/* <PHFileUploader name="file" label="Upload File" /> */}
+            <PHFileUploader name="file" label="Upload File" />
           </Grid>
         </Grid>
         <Button sx={{ mt: 1 }} type="submit">
